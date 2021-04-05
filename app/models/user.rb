@@ -8,9 +8,9 @@ class User < ApplicationRecord
   attr_accessor :password
 
   has_many :questions
-
+  
   before_validation :downcase_email_username
-  # before_save :downcase_email_username, uniqueness: true
+
   before_save :encrypt_password
 
   validates :email, :username, presence: true
@@ -52,4 +52,5 @@ class User < ApplicationRecord
     username&.downcase!
     email&.downcase!
   end
+
 end
