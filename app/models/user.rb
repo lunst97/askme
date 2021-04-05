@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   before_save :encrypt_password
 
+  before_validation :downcase_email
+  before_validation :downcase_user
+  before_save :encrypt_password
+
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
 
