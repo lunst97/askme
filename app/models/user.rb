@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :questions
   
   before_validation :downcase_email_username
-
   before_save :encrypt_password
 
   validates :email, :username, presence: true
@@ -20,11 +19,10 @@ class User < ApplicationRecord
             length: { maximum: 40 },
             format: { with: REGEXP_USERNAME }
   validates :email,
-            format: {:with => /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})\z/i}
+            format: {with: URI::MailTo::EMAIL_REGEXP}
 
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
-
 
   def encrypt_password
     if self.password.present?
@@ -52,5 +50,4 @@ class User < ApplicationRecord
     username&.downcase!
     email&.downcase!
   end
-
 end
