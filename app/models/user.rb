@@ -19,10 +19,12 @@ class User < ApplicationRecord
             length: { maximum: 40 },
             format: { with: REGEXP_USERNAME }
   validates :email,
-            format: {with: URI::MailTo::EMAIL_REGEXP}
+            format: { with: URI::MailTo::EMAIL_REGEXP }
 
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
+
+  private :encrypt_password, :downcase_email_username
 
   def encrypt_password
     if self.password.present?
