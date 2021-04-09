@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20210408143158_add_index_user_email.rb

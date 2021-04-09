@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  resources :users
+  resources :users, except: [:destroy]
+  resources :session, only: [:new, :create, :destroy]
   resources :questions
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'sing_up' => 'users#new'
+  get 'log_out' => 'session#destroy'
+  get 'log_in' => 'session#new'
   get 'show' => 'users#show'
 end
