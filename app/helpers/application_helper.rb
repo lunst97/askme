@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def fa_icon(icon_class)
+    content_tag 'span', '', class: "fa fa-#{icon_class}"
+  end
+
   def questions_count(count)
     if count.between?(2,4)
       "Всего: #{count} вопроса "

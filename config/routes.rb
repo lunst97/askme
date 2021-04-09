@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:destroy]
   resources :session, only: [:new, :create, :destroy]
-  resources :questions
+  resources :questions,except: [:show, :new, :index]
 
   get 'sing_up' => 'users#new'
   get 'log_out' => 'session#destroy'
