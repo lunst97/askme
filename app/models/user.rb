@@ -52,4 +52,5 @@ class User < ApplicationRecord
     username&.downcase!
     email&.downcase!
   end
+
 end
