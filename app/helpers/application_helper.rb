@@ -11,21 +11,13 @@ module ApplicationHelper
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
 
-  def sklonenie_question_answer(count)
+  def sklonenie(count, word1, word2, word3)
     if (count % 10).between?(5,9) || count % 10 == 0 || (count % 100).between?(11,14)
-      "ов"
+      word1
     elsif (count % 10).between?(2,4)
-      "а"
+      word2
     else
-      ""
-    end
-  end
-
-  def sklonenie_unanswered(count)
-    if (count % 10).between?(2,9) || count % 10 == 0 || (count % 100).between?(11,14)
-      "ных"
-    else
-      "ный"
+      word3
     end
   end
 end

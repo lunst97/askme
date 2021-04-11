@@ -24,17 +24,17 @@
   <div class="user-statistics container text-center">
     <div class="column-1-3">
       <h1 class="title-small"><%= @questions_count %></h1>
-      <p>вопрос<%= sklonenie_question_answer(@questions_count)%></p>
+      <p><%= sklonenie(@questions_count, "вопросов", "вопроса", "вопрос" )%></p>
     </div>
 
     <div class="column-1-3">
       <h1 class="title-small"><%= @answers_count %></h1>
-      <p>ответ<%= sklonenie_question_answer(@answers_count)%></p>
+      <p><%= sklonenie(@answers_count, "ответов", "ответа", "ответ")%></p>
     </div>
 
     <div class="column-1-3">
       <h1 class="title-small"><%= @unanswered_count %></h1>
-      <p>безответ<%=sklonenie_unanswered(@unanswered_count)%></p>
+      <p><%=sklonenie(@unanswered_count, "безответных", "безответных", "безответный")%></p>
     </div>
   </div>
 </div>
