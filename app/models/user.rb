@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
 
+  validates :avatar_url, format: { with: URI::regexp }
+
   validates :username,
             length: { maximum: 40 },
             format: { with: REGEXP_USERNAME }
@@ -23,7 +25,7 @@ class User < ApplicationRecord
 
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
-
+  
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
   end

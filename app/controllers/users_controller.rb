@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
   before_action :load_user, except: [:index, :create, :new]
-
   before_action :authorize_user, except: [:index, :new, :create, :show]
 
   def index
@@ -20,6 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_url, notice: 'Пользователь успешно зарегестрирован!'
     else
       render 'new'
@@ -38,13 +37,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @questions = @user.questions.order(create_at: :desc)
-
+    @questions = @user.questions.first_question_sort
     @new_question = @user.questions.build
 
     @questions_count = @questions.count
-    @answers_count = @questions.where.not(answer: nil).count
-    @unanswered_count = @questions_count - @answers_count
+    @answers_count = @questions.answered.count
+    @unanswered_count = @questions.unanswered.count
   end
 
   private
