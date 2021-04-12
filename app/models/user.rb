@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
-  
+
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
   end
