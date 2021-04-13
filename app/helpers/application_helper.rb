@@ -15,6 +15,10 @@ module ApplicationHelper
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
 
+  def search_question_author(author_id)
+    User.find_by(id: author_id)&.username
+  end
+
   def sklonenie(count, word1, word2, word3)
     if (count % 10).between?(5,9) || count % 10 == 0 || (count % 100).between?(11,14)
       word1
