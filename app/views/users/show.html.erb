@@ -1,10 +1,9 @@
-
-<div style="padding: 20px 0; color: white; background:<% if @user.color_background_user == nil %>
-                                                        <%= "#005a55" %>
-                                                      <% else %>
-                                                        <%= @user.color_background_user %>
-                                                      <% end %>"
-  class="text-center">
+<div style="background:<% if @user.color_background_user == nil %>
+                         <%= "#005a55" %>
+                       <% else %>
+                         <%= @user.color_background_user %>
+                       <% end %>;"
+  class="user-header text-center">
   <h1 class="title-medium">
     <%= @user.name %>
   </h1>
