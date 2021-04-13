@@ -7,5 +7,4 @@ class Question < ApplicationRecord
   scope :answered, -> { where.not(answer: nil) }
   scope :unanswered, -> { where(answer: nil) }
   scope :first_question_sort, -> { order(created_at: :desc) }
-
 end
