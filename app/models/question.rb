@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :user
-  belongs_to :author_id, class_name: 'User'
+  # belongs_to :author_id, class_name: 'User'
 
   validates :text, presence: true
   validates :text, length: { maximum: 255 }
