@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
 
-  validates :avatar_url, format: { with: URI::regexp }
+
 
   validates :username,
             length: { maximum: 40 },
