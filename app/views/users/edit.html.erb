@@ -48,6 +48,7 @@
       </div>
       <div class="form-action">
         <%= f.submit 'Сохранить', class: 'button button-small button-dark' %>
+        <%= link_to fa_icon('trash-o'), @user, method: :delete, data: {confirm: "Точно удалить пользователя #{@user.username}?"}%>
       </div>
     <%end%>
   </div>
