@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  resources :users, except: []
+  resources :users, only: [:new, :create, :update, :show, :index, :destroy, :edit]
   resources :session, only: [:new, :create, :destroy]
   resources :questions, except: [:show, :new, :index]
 
