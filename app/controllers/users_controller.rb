@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @questions = @user.questions.first_question_sort
+    @questions = @user.questions.by_recent
     @new_question = @user.questions.build
 
     @questions_count = @questions.count
