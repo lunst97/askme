@@ -1,6 +1,5 @@
 <% question ||= nil %>
 <% action_icon = question.answer.blank? ? 'reply' : 'pencil' %>
-
 <div class="question">
   <div class="question-content">
     <div class="question-text text-lead">
@@ -15,10 +14,10 @@
 
     <div class="question-date">
         <%= 'Спросил | ' %>
-      <% if question.author_id.nil?%>
+      <% if question.author.nil?%>
         <%= 'Аноним' %>
       <% else %>
-        <%= link_to "@#{search_question_author(question.author_id)}", user_path(question.author_id) %>
+        <%= link_to "@#{question.author&.username}", user_path(question.author) %>
       <% end %>
       <%= "(#{l(question.created_at, format: :short)})" %>
     </div>
