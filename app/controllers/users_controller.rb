@@ -46,6 +46,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    Question.where(author_id: @user.id).each do |q|
+      q.author_id = nil
+      q.save
+    end
     @user.destroy
     session[:user_id] = nil
     redirect_to root_path, notice: 'Пользователь удален'
