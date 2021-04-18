@@ -24,6 +24,8 @@ class User < ApplicationRecord
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
 
+  validates :color_background_user, format: { with: /\A#\w{6}\z/ }
+
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
   end
