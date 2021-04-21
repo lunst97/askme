@@ -8,6 +8,7 @@ class User < ApplicationRecord
   attr_accessor :password
 
   has_many :questions, dependent: :destroy
+  has_many :author_questions, class_name: 'Question', foreign_key: :author_id, dependent: :nullify
   
   before_validation :downcase_email_username
   before_save :encrypt_password
@@ -24,7 +25,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
 
-  validates :color_background_user, format: { with: /\A#\w{6}\z/ }
+  validates :color_background_user, format: { with: /\A#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\z/ }
 
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]

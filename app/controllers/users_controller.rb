@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :load_user, except: [:index, :create, :new]
   before_action :authorize_user, except: [:index, :new, :create, :show]
 
+
   def index
     @users = User.all
   end
@@ -46,10 +47,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    Question.where(author_id: @user.id).each do |q|
-      q.author_id = nil
-      q.save
-    end
     @user.destroy
     session[:user_id] = nil
     redirect_to root_path, notice: 'Пользователь удален'
