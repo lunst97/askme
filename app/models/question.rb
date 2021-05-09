@@ -2,8 +2,8 @@ class Question < ApplicationRecord
   belongs_to :user
   belongs_to :author, class_name: 'User', optional: true
 
-  has_many :hashtag, through: :hashtag_question
-  has_many :hashtag_question, dependent: :destroy
+  has_many :hashtags, through: :hashtag_questions
+  has_many :hashtag_questions, dependent: :destroy
 
   validates :text, presence: true
   validates :text, length: { maximum: 255 }

@@ -1,5 +1,5 @@
 class Hashtag < ApplicationRecord
-  has_many :hashtag_question, dependent: :destroy
-  has_many :question, through: :hashtag_question
+  has_many :hashtag_questions, dependent: :destroy
+  has_many :questions, through: :hashtag_questions
 
 end
