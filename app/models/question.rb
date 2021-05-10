@@ -8,13 +8,11 @@ class Question < ApplicationRecord
   validates :text, presence: true
   validates :text, length: { maximum: 255 }
 
-  before_save :find_hashtags
+  after_commit :find_hashtags, on: [:create, :update]
 
   scope :answered, -> { where.not(answer: nil) }
   scope :unanswered, -> { where(answer: nil) }
   scope :by_recent, -> { order(created_at: :desc) }
-
-  private
 
   def find_hashtags
     text.to_s.scan(/#[[:word:]-]+/)

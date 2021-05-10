@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hashtags
   root 'users#index'
 
   resources :users, only: [:new, :create, :update, :show, :index, :destroy, :edit]
