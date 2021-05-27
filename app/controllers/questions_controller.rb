@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
 
     @question.author_id = current_user&.id
 
-    if @question.save
+    if check_captcha(@question) && @question.save
       redirect_to user_path(@question.user), notice: 'Вопрос задан'
     else
       render :edit
@@ -57,5 +57,9 @@ class QuestionsController < ApplicationController
 
     def authorize_user
       reject_user unless @question.user == current_user
+    end
+
+    def check_captcha(model)
+      current_user.present? || verify_recaptcha(model: model)
     end
 end

@@ -8,6 +8,8 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 gem 'webpacker', '~> 5.0'
 gem 'uglifier'
 gem 'rails_12factor'
+gem 'dotenv-rails'
+gem 'recaptcha', require: 'recaptcha/rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
