@@ -21,28 +21,5 @@ class Question < ApplicationRecord
       hashtag = Hashtag.find_or_create_by(name: h)
       self.hashtags = [hashtag]
     end
-    # self.hashtags = all_hashtags
   end
-  #   if answer_question.present?
-    #     Hashtag.create(name: answer_question)
-    #     HashtagQuestion.create(hashtag_id: Question.last.id, question_id: Question.last.id)
-    #   end
-    #   text_question = text.scan(/#[[:word:]-]+/)
-    #   if text_question.present?
-    #     Hashtag.create(name: text_question)
-    #     HashtagQuestion.create(hashtag_id: Hashtag.last.id, question_id: Question.last.id)
-    #   end
-    # else
-    #   text_question = text.scan(/#[[:word:]-]+/)
-    #   if text_question.present?
-    #     Hashtag.create(name: text_question)
-    #     HashtagQuestion.create(hashtag_id: Hashtag.last.id, question_id: Question.last.id)
-    #   end
-    # end
-    # text = Question.last.text.scan(/#[[:word:]-]+/)
-    # answer = Question.last.answer.scan(/#[[:word:]-]+/)
-    # Hashtag.create(name: text)
-    # Hashtag.create(name: answer)
-    # HashtagQuestion.create(hashtag_id: text.id, question_id: Question.last.id)
-    # HashtagQuestion.create(hashtag_id: answer.id, question_id: Question.last.id)
 end
