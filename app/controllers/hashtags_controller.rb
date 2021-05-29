@@ -1,13 +1,7 @@
 class HashtagsController < ApplicationController
-  before_action :set_hashtag
-
   # GET /hashtags/1
   def show
+    @hashtag = Hashtag.find_by!(name: params[:id])
+    @question_hashtag = @hashtag.questions
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hashtag
-      @hashtag = Hashtag.find(params[:id])
-    end
 end

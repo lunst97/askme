@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_hashtag_path(@hashtag) %> |
-<%= link_to 'Back', hashtags_path %>
+<div class="content-wrapper buffer-both text-center">
+  <h3 class="title-medium">Вопросы с хештегом
+    <span class="hashtag">#<%=@hashtag.name%></span>
+  </h3>
+</div>
+<% @question_hashtag.each do |question| %>
+  <%= render partial: 'questions/question', object: question%>
+<% end %>
