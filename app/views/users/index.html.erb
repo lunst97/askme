@@ -17,7 +17,7 @@
 
   <% @hashtags.each do |hashtag| %>
     <div class="users-list-item title-small">
-        <%= link_to "##{hashtag.name}", hashtag_path(hashtag.name), class: 'hashtag' %>
+      <%= link_to "##{hashtag.name}", hashtag_path(hashtag.name), class: 'hashtag' %>
     </div>
   <% end %>
 </div>

@@ -3,6 +3,6 @@
     <span class="hashtag">#<%=@hashtag.name%></span>
   </h3>
 </div>
-<% @question_hashtag.each do |question| %>
+<% @hashtag_questions.each do |question| %>
   <%= render partial: 'questions/question', object: question%>
 <% end %>
