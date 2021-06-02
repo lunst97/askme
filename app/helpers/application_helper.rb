@@ -24,19 +24,11 @@ module ApplicationHelper
     end
   end
 
-  def url_hashtag_text(text)
+  def url_hashtag(text)
     text_hash = text.scan(REGEXP_HASHTAG)
     text_hash.each do |h|
-      text.gsub(h, (link_to "#{h}", hashtag_path(h.delete('#'))))
+      text = text.gsub(h, "#{link_to( "#{h}", hashtag_path(h.delete('#')), class:'hashtag')}").html_safe
     end
     text
-  end
-
-  def url_hashtag_answer(answer)
-    answer_hash = answer.scan(REGEXP_HASHTAG)
-    answer_hash.each do |h|
-      answer.gsub(h, (link_to "#{h}", hashtag_path(h.delete('#'))))
-    end
-    answer
   end
 end

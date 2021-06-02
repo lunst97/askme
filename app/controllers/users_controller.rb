@@ -5,7 +5,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @hashtags = Hashtag.select(:name).distinct
+    @hashtags = Hashtag.find_by_sql("SELECT DISTINCT name FROM hashtags, hashtag_questions WHERE hashtags.id == hashtag_questions.hashtag_id")
+    # Hashtag.connection.select_all("SELECT name FROM hashtags")
+    # Hashtag.find_by_sql("SELECT DISTINCT name FROM hashtags WHERE hash")
+
   end
 
   def new

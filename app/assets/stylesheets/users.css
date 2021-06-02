@@ -57,6 +57,10 @@
     color: slateblue;
 }
 
+.hashtag:hover {
+    color:darkslateblue;
+}
+
 @media (max-width: 960px) {
   .user-question-form {
     margin-left: 0;
