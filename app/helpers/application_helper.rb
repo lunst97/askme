@@ -25,10 +25,7 @@ module ApplicationHelper
   end
 
   def url_hashtag(text)
-    text_hash = text.scan(REGEXP_HASHTAG)
-    text_hash.each do |h|
-      text = text.gsub(h, "#{link_to( "#{h}", hashtag_path(h.delete('#')), class:'hashtag')}").html_safe
-    end
-    text
+    text_with_hashtag = text.gsub( /#[[:word:]-]+/) { |hashtag| link_to( hashtag, hashtag_path(hashtag.delete('#')), class:'hashtag') }
+    text_with_hashtag.html_safe
   end
 end

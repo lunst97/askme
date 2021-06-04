@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :users
   resource :session, only: %i[new create destroy]
   resources :questions, except: %i[show new index]
-  resources :hashtags, only: %i[show], param: :name
+  resources :hashtags, only: :show, param: :name
 end

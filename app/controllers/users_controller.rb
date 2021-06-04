@@ -2,16 +2,13 @@ class UsersController < ApplicationController
   before_action :load_user, except: [:index, :create, :new]
   before_action :authorize_user, except: [:index, :new, :create, :show]
 
-
   def index
     @users = User.all
-    @hashtags = Hashtag.find_by_sql("SELECT DISTINCT name FROM hashtags, hashtag_questions WHERE hashtag_questions.hashtag_id = hashtags.id ")
-
+    @hashtags = Hashtag.only_have_question
   end
 
   def new
     redirect_to root_path, alert: 'Вы уже залогинены' if current_user.present?
-
     @user = User.new
   end
 
