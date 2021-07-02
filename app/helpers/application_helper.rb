@@ -1,7 +1,4 @@
-require 'uri'
 module ApplicationHelper
-  REGEXP_HASHTAG = /#[[:word:]-]+/.freeze
-
   def user_avatar(user)
     if user.avatar_url.present? && (user.avatar_url.include?("https://") || user.avatar_url.include?("http://"))
       user.avatar_url
@@ -25,7 +22,6 @@ module ApplicationHelper
   end
 
   def url_hashtag(text)
-    text_with_hashtag = text.gsub( /#[[:word:]-]+/) { |hashtag| link_to( hashtag, hashtag_path(hashtag.delete('#')), class:'hashtag') }
-    text_with_hashtag.html_safe
+    text.gsub(REGEXP_HASHTAG) { |hashtag| link_to( hashtag, hashtag_path(hashtag.delete('#')), class:'hashtag')}.html_safe
   end
 end

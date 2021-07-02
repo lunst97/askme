@@ -1,6 +1,4 @@
 class Question < ApplicationRecord
-  REGEXP_HASHTAG = /#[[:word:]-]+/.freeze
-
   belongs_to :user
   belongs_to :author, class_name: 'User', optional: true
 
@@ -19,7 +17,7 @@ class Question < ApplicationRecord
   private
 
   def add_hashtags
-    self.hashtags = "#{text} #{answer}".downcase.scan(REGEXP_HASHTAG).uniq.map do |h|
+    self.hashtags = "#{text} #{answer}".downcase.scan(Hashtag.REGEXP_HASHTAG).uniq.map do |h|
       Hashtag.find_or_create_by(name: h.delete('#'))
     end
   end
