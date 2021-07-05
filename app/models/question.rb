@@ -17,7 +17,7 @@ class Question < ApplicationRecord
   private
 
   def add_hashtags
-    self.hashtags = "#{text} #{answer}".downcase.scan(Hashtag.REGEXP_HASHTAG).uniq.map do |h|
+    self.hashtags = "#{text} #{answer}".downcase.scan(Hashtag::REGEXP_HASHTAG).uniq.map do |h|
       Hashtag.find_or_create_by(name: h.delete('#'))
     end
   end
