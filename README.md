@@ -18,7 +18,8 @@ ___
 2. Или же вы можете:
   - сделать клонирование моего репозитория в свободную папку (`git clone git@github.com:lunst97/askme.git`)
   - установить все гемы перейдя в папку приложения (`bundle`)
-  - сделать миграции ('rake db:migrate')
+  - сделать миграции 
+  ```rake db:migrate```
   - Создать файл `.env` и положить в него код (а так же перейти в [recaptcha](https://www.google.com/recaptcha/about/) и скопировать ключи)
     ```yml
     RECAPTCHA_ASKME_PUBLIC_KEY = ''
