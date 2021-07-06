@@ -1,24 +1,8 @@
-# README
+# ASKME
+___
+Это приложение, неофициальный клон сайта ask.fm, который мы сделали вместе с [goodprogrammer](https://goodprogrammer.ru/).
+В нем есть авторизация, с помощью контроллеров (без использование гема device), смена пароля, смена цвета профиля, вывод всех пользователей, а так же имеются хештеги.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Гифка с возможностями](https://user-images.githubusercontent.com/44715875/124629220-e774a800-de89-11eb-872d-7a645af63b0e.gif)
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
