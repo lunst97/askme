@@ -1,24 +1,43 @@
-# README
+# ASKME
+___
+Это приложение, неофициальный клон сайта ask.fm, который мы сделали вместе с [goodprogrammer](https://goodprogrammer.ru/).
+В нем есть авторизация, с помощью контроллеров (без использование гема device), смена пароля, смена цвета профиля, вывод всех пользователей, а так же имеются хештеги.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Гифка с возможностями](https://user-images.githubusercontent.com/44715875/124629220-e774a800-de89-11eb-872d-7a645af63b0e.gif)
 
-Things you may want to cover:
+## О приложении:
+В приложении мы имеим следующее: 
+- Пользователь не авторизованный может задать вопрос
+- Авторизованный пользователь так же может задавать вопросы, но и редактировать их
+- Переход по хештегам может быть как из вопроса, так и из главной страницы
+- Под каждым авторизованным вопросом красуется никнейм создателя вопроса
+- В профиле изменяется цвет шапки
 
-* Ruby version
+## Как воспользоваться:
+1. Вы можете просто перейти по ссылке и попробовать задать вопрос.
+2. Или же вы можете:
+  - сделать клонирование моего репозитория в свободную папку 
+  ```
+  git clone git@github.com:lunst97/askme.git
+  ```
+  - установить все гемы перейдя в папку приложения
+  ```
+  bundle
+  ```
+  - сделать миграции 
+  ```
+  rake db:migrate
+  ```
+  - Создать файл `.env` и положить в него код (а так же перейти в [recaptcha](https://www.google.com/recaptcha/about/) и скопировать ключи)
+    ```yml
+    RECAPTCHA_ASKME_PUBLIC_KEY = ''
+    RECAPTCHA_ASKME_PRIVATE_KEY = ''
+    ```
+3. Запустить локальный сервер 
+   ```
+   rails s
+   ```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## О версиях:
+- `Ruby` - `2.7.2`
+- `Rails` - `6.1.3.1`
